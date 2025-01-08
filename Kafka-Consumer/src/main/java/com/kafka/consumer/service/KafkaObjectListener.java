@@ -26,7 +26,7 @@ public class KafkaObjectListener {
 	 * 
 	 * @param customer
 	 */
-	@KafkaListener(topics = "kafka-topic-2", groupId = "ex-group-4", containerFactory = "containerFactory")
+	@KafkaListener(topics = "kafka-objects", groupId = "ex-group-4", containerFactory = "containerFactory")
 	public void firstConsumer(Customer customer) {
 		System.out.println("Consumer Consume the message: " + customer.toString());
 	}

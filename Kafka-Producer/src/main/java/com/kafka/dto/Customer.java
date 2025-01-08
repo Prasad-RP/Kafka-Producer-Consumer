@@ -1,6 +1,8 @@
 package com.kafka.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * The reason behind keeping this package outside of base package is, this DTO
@@ -12,6 +14,8 @@ import lombok.Data;
  *
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Customer {
 
 	private Long id;
