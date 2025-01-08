@@ -21,16 +21,16 @@ import com.kafka.producer.service.KafkaObjectPublisher;
 @Testcontainers
 class KafkaProducerApplicationTests {
 
-    @Container
+	@Container
 	static KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.5.0"));
-
-	@Autowired
-	private KafkaObjectPublisher publisher;
 
 	@DynamicPropertySource
 	public static void initProperties(DynamicPropertyRegistry registry) {
 		registry.add("spring.kafka.bootstrap-servers", kafkaContainer::getBootstrapServers);
 	}
+
+	@Autowired
+	private KafkaObjectPublisher publisher;
 
 	@Test
 	void testSendObjectsToTopic() {
