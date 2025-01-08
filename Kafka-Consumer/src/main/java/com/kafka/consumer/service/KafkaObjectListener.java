@@ -30,4 +30,9 @@ public class KafkaObjectListener {
 	public void firstConsumer(Customer customer) {
 		System.out.println("Consumer Consume the message: " + customer.toString());
 	}
+
+	@KafkaListener(topics = "kafka-test", groupId = "jt-group")
+	public void testConsumer(Customer customer) {
+		System.out.println("Test Consumer Consume the message: " + customer.toString());
+	}
 }

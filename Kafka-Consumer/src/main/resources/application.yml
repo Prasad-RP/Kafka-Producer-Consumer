@@ -2,11 +2,11 @@
 #  kafka:
 #    consumer:
 #      bootstrap-servers: localhost:9092
-#      group-id: ex-group-4
+#      group-id: ex-group-5
 #      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 #      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 #      properties:
-#        spring.json.trusted.packages: com.kafka.dto
-##        spring.json.trusted.packages: "*" # To Allow All Packages
+##        spring.json.trusted.packages: com.kafka.dto
+#        spring.json.trusted.packages: "*" # To Allow All Packages
 server:
   port: 9292
