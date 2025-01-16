@@ -47,4 +47,16 @@ public class KafkaMessagePublisher {
 		});
 	}
 
+	public void sendMessageToDlt(String msg) {
+		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("kafka-error-handler", msg);
+		future.whenComplete((result, ex) -> {
+			if (ex == null) {
+				System.out.println(
+						"Sent Message=[" + msg + "] with offset=[" + result.getRecordMetadata().offset() + "]");
+			} else {
+				System.out.println("unable to Sent Message=[" + msg + "] due to: [" + ex.getMessage() + "]");
+			}
+		});
+	}
+
 }

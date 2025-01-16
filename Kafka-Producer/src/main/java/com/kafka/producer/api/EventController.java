@@ -58,4 +58,15 @@ public class EventController {
 		}
 	}
 
+	// To Publish Error Message To Dead Letter topic
+	@GetMapping("/publish/error/{msg}")
+	public ResponseEntity<?> publishErrorMessage(@PathVariable String msg) {
+		try {
+			kafkaMessagePublisher.sendMessageToDlt(msg);
+			return ResponseEntity.ok("DLT Mssage Published.");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
+	}
+
 }
